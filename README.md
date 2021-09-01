@@ -1,4 +1,4 @@
-# NBA-Statistical-Analysis
+# NBA-Free-Agency-Analysis
 
 Hey! Welcome to my project, NBA Free Agency Analysis. Each NBA season, the excitement does not just end after the NBA championship, but the free agency period can seem like an exiting playoff run itself. As teams revaluate and retool their rosters, different statistics can drive action for each team depending on their needs. The goal of this project is to analyze NBA game data to uncover insights from the following perspectives:
 
