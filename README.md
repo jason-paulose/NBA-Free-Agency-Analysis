@@ -1,6 +1,6 @@
 # NBA-Statistical-Analysis
 
-Hey! Welcome to my project, NBA Statistical Analysis. Each NBA season, the excitement does not just end after the NBA champtionship, but the free agency period can see like an exiting playoff run itself. As teams revaluate and retool their rosters, different statistics can drive action for each team depending on their needs. The goal of this project is to analyze NBA game data to uncover insights from the following perspectives:
+Hey! Welcome to my project, NBA Statistical Analysis. Each NBA season, the excitement does not just end after the NBA championship, but the free agency period can see like an exiting playoff run itself. As teams revaluate and retool their rosters, different statistics can drive action for each team depending on their needs. The goal of this project is to analyze NBA game data to uncover insights from the following perspectives:
 
 As an NBA Team Owner, I would like to know the players with the highest PER's so that I know who to target in free agency to provide the most excitement to my fans.
 
