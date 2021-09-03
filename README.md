@@ -7,3 +7,5 @@ As an NBA Team Owner, I would like to know the players with the highest PER's so
 As an NBA Head Coach, I would like to know players' win/loss percentages so that our front office can target players with a winning pedigree in free agency.
 
 As an NBA Player, I would like to know coaches with the highest PPG so that I can consider the right coach to unlock my offense.
+
+Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
