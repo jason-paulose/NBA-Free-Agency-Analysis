@@ -1,0 +1,58 @@
+/*Prior to exploring and analyzing data, we have been asked to clean the tables in the following ways
+	1) Remove uncessary columns
+	2) Replace null values when necessary
+	3) Replace abbreviated postion values with full names */
+
+-- Remove unecessary columns
+ALTER TABLE nba.dbo.games
+DROP COLUMN GAME_STATUS_TEXT, HOME_TEAM_WINS
+
+ALTER TABLE nba.dbo.teams
+DROP COLUMN LEAGUE_ID, MIN_YEAR, MAX_YEAR, YEARFOUNDED, DLEAGUEAFFILIATION
+
+-- Replace arenas with a capacity of 0/null with the average capacity of all stadiums
+UPDATE nba.dbo.teams
+SET ARENACAPACITY= 
+CASE
+WHEN ARENACAPACITY = 0 THEN (SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams)
+ELSE ARENACAPACITY
+END
+
+UPDATE nba.dbo.teams
+SET ARENACAPACITY = ISNULL(ARENACAPACITY,(SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams))
+
+-- replace home/away null values for points, assists, rebounds with the average of those values, respectively
+UPDATE nba.dbo.games
+SET PTS_home = ISNULL(PTS_home, (SELECT AVG(PTS_home)FROM nba.dbo.games))
+UPDATE nba.dbo.games
+SET AST_home = ISNULL(AST_home, (SELECT AVG(AST_home)FROM nba.dbo.games))
+UPDATE nba.dbo.games
+SET REB_home = ISNULL(REB_home, (SELECT AVG(REB_home)FROM nba.dbo.games))
+
+UPDATE nba.dbo.games
+SET PTS_away = ISNULL(PTS_away, (SELECT AVG(PTS_away)FROM nba.dbo.games))
+UPDATE nba.dbo.games
+SET AST_away = ISNULL(AST_away, (SELECT AVG(AST_away)FROM nba.dbo.games))
+UPDATE nba.dbo.games
+SET REB_away = ISNULL(REB_away, (SELECT AVG(REB_away)FROM nba.dbo.games))
+
+-- assume null values in the comments column means the players were available to play
+UPDATE nba.dbo.gameDetails
+SET COMMENT = ISNULL(COMMENT, 'Played')
+
+-- Replace abbreviated postion values with full names
+UPDATE nba.dbo.gameDetails
+SET START_POSITION = 
+CASE
+WHEN START_POSITION = 'G' THEN 'Guard'
+WHEN START_POSITION = 'F' THEN 'Forward'
+WHEN START_POSITION = 'C' THEN 'Center'
+END
+
+UPDATE nba.dbo.gameDetails
+SET TEAM_CITY = 'Los Angeles'
+WHERE TEAM_CITY = 'LA'
+
+-- Update date format upon retrieval
+ SELECT FORMAT(GAME_DATE_EST, 'MMM dd yyyy') AS ConvertedGameDate
+ FROM nba.dbo.games
