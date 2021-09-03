@@ -1,7 +1,9 @@
 /*Prior to exploring and analyzing data, we have been asked to clean the tables in the following ways
 	1) Remove uncessary columns
 	2) Replace null values when necessary
-	3) Replace abbreviated postion values with full names */
+	3) Replace abbreviated postion values with full names
+	4) Add columns when necessary
+	5) Reformat dates upon retrival*/
 
 -- Remove unecessary columns
 ALTER TABLE nba.dbo.games
@@ -52,6 +54,13 @@ END
 UPDATE nba.dbo.gameDetails
 SET TEAM_CITY = 'Los Angeles'
 WHERE TEAM_CITY = 'LA'
+
+-- add concatenated column for city name and team name
+ALTER TABLE nba.dbo.teams
+ADD CITYNICKNAME nvarchar(255)
+
+UPDATE nba.dbo.teams
+SET CITYNICKNAME = CONCAT(CITY, SPACE(1), NICKNAME)
 
 -- Update date format upon retrieval
  SELECT FORMAT(GAME_DATE_EST, 'MMM dd yyyy') AS ConvertedGameDate
