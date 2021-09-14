@@ -3,7 +3,8 @@
 	2) Replace null values when necessary
 	3) Replace abbreviated postion values with full names
 	4) Add columns when necessary
-	5) Reformat dates upon retrival*/
+	5) Add a column to designate the winner of each game
+	6) Reformat dates upon retrival*/
 
 -- Remove unecessary columns
 ALTER TABLE nba.dbo.games
@@ -11,6 +12,7 @@ DROP COLUMN GAME_STATUS_TEXT, HOME_TEAM_WINS
 
 ALTER TABLE nba.dbo.teams
 DROP COLUMN LEAGUE_ID, MIN_YEAR, MAX_YEAR, YEARFOUNDED, DLEAGUEAFFILIATION
+
 
 -- Replace arenas with a capacity of 0/null with the average capacity of all stadiums
 UPDATE nba.dbo.teams
@@ -61,6 +63,20 @@ ADD CITYNICKNAME nvarchar(255)
 
 UPDATE nba.dbo.teams
 SET CITYNICKNAME = CONCAT(CITY, SPACE(1), NICKNAME)
+
+ -- add a column to designate the winner of each game
+ ALTER TABLE nba.dbo.games
+ADD WINNER nvarchar(255)
+
+UPDATE nba.dbo.games
+SET WINNER = HOME_TEAM_ID
+FROM nba.dbo.games
+where PTS_home > PTS_away
+
+UPDATE nba.dbo.games
+SET WINNER = VISITOR_TEAM_ID
+FROM nba.dbo.games
+where PTS_home < PTS_away
 
 -- Update date format upon retrieval
  SELECT FORMAT(GAME_DATE_EST, 'MMM dd yyyy') AS ConvertedGameDate
