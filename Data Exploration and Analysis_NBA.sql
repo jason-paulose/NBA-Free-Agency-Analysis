@@ -20,6 +20,23 @@ FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
 WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
 GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
 ORDER BY ReboundTotal DESC
+GO
+
+-- alternatively, return the average points, rebounds, and assists for any given player in any season
+CREATE PROCEDURE dbo.spgameDetails_getStats
+@PLAYER_NAME nvarchar(50)
+AS
+BEGIN
+ 	SELECT gd.PLAYER_NAME AS Player, ROUND(AVG(gd.PTS),1) AS PPG, ROUND(AVG(gd.REB),1) AS RPG, ROUND(AVG(gd.AST),1) AS APG
+	FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
+	WHERE YEAR(g.GAME_DATE_EST) IN (2019) AND gd.PLAYER_NAME = @PLAYER_NAME
+	GROUP BY gd.PLAYER_NAME
+END
+GO
+
+EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Lebron James'
+EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Trae Young'
+EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Luka Doncic'
 
 -- Who are the league leaders in efficiency?
 SELECT PLAYER_NAME, 
@@ -38,3 +55,4 @@ FROM nba.dbo.gameDetails
 WHERE COMMENT = 'Played'
 GROUP BY PLAYER_NAME
 ORDER BY EfficiencyRating DESC
+
