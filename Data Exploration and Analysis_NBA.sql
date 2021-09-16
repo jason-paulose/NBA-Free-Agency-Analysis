@@ -20,7 +20,7 @@ ORDER BY AssistTotal DESC
 
 -- Full list of players with the respective team and average points, rebounds, and assists in 2019
 WITH playerSummary AS(
-SELECT TEAM_ID, PLAYER_NAME, ROUND(AVG(PTS),1) AS AveragePoints, ROUND(AVG(REB),1) AS AverageRebounds, ROUND(AVG(AST),1) AS AverageAssists
+SELECT TEAM_ID, PLAYER_NAME, ROUND(AVG(PTS),1) AS PPG, ROUND(AVG(REB),1) AS RPG, ROUND(AVG(AST),1) AS APG
 FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
 WHERE YEAR(g.GAME_DATE_EST) = '2019'
 GROUP BY PLAYER_NAME, TEAM_ID)
@@ -48,7 +48,7 @@ EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Luka Doncic'
 
 
 -- return 2019 players whose rebounding averages are double the league average in the NBA since 2004
-SELECT gd.PLAYER_NAME, ROUND(AVG(gd.REB),1)
+SELECT gd.PLAYER_NAME AS Player, ROUND(AVG(gd.REB),1) AS RPG
 FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
 WHERE YEAR(g.GAME_DATE_EST) = '2019'
 GROUP BY PLAYER_NAME
@@ -59,7 +59,7 @@ ORDER BY 2 DESC
 
 
 -- Who are the league leaders in efficiency?
-SELECT PLAYER_NAME, 
+SELECT PLAYER_NAME AS Player, 
 ROUND((SUM(FGM)*1.591+
 SUM(STL)*0.998+
 SUM(FG3M)*0.958+
