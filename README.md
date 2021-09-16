@@ -13,7 +13,7 @@ I address these user stories with the following SQL concepts:
 1) Aggregate Functions
 2) Joins
 3) Subqueries
-4) Commone Table Expressions
+4) Common Table Expressions
 5) Stored Procedures
 
 --
