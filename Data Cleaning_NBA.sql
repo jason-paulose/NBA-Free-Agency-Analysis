@@ -43,6 +43,7 @@ SET REB_away = ISNULL(REB_away, (SELECT AVG(REB_away)FROM nba.dbo.games))
 UPDATE nba.dbo.gameDetails
 SET COMMENT = ISNULL(COMMENT, 'Played')
 
+
 -- Replace abbreviated postion values with full names
 UPDATE nba.dbo.gameDetails
 SET START_POSITION = 
@@ -76,6 +77,7 @@ UPDATE nba.dbo.games
 SET WINNER = VISITOR_TEAM_ID
 FROM nba.dbo.games
 where PTS_home < PTS_away
+
 
 -- Update date format upon retrieval
  SELECT FORMAT(GAME_DATE_EST, 'MMM dd yyyy') AS ConvertedGameDate
