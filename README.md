@@ -8,4 +8,14 @@ As an NBA Team Owner, I would like to know the players' efficiency ratings so th
 
 As an NBA Head Coach, I would like to know last season's players who are well above average rebounders so that I know who can help my team gain more possessions.
 
+I address these user stories with the following SQL concepts:
+
+1) Aggregate Functions
+2) Joins
+3) Subqueries
+4) Commone Table Expressions
+5) Stored Procedures
+
+--
+
 Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
