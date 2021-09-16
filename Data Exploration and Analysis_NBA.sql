@@ -2,7 +2,8 @@
 SELECT FORMAT(COUNT(DISTINCT GAME_ID), 'N0') AS NumberofGames
 FROM nba.dbo.gameDetails
 
--- which players attributed to the most points, assists, and rebounds in a game the 2020 season?
+
+-- which players attributed to the most points and assists in a game the 2020 season?
 SELECT TOP 1 g.GAME_DATE_EST, gd.PLAYER_NAME AS HighestScoringPlayer, MAX(gd.PTS) AS PointTotal
 FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
 WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
@@ -14,13 +15,8 @@ FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
 WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
 GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
 ORDER BY AssistTotal DESC
-
-SELECT TOP 1 g.GAME_DATE_EST, gd.PLAYER_NAME AS HighestReboundingPlayer, MAX(gd.REB) AS ReboundTotal
-FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
-WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
-GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
-ORDER BY ReboundTotal DESC
 GO
+
 
 -- return the average points, rebounds, and assists for any given player in any season
 CREATE PROCEDURE dbo.spgameDetails_getStats
@@ -37,6 +33,7 @@ GO
 EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Lebron James'
 EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Trae Young'
 EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Luka Doncic'
+
 
 -- Who are the league leaders in efficiency?
 SELECT PLAYER_NAME, 
@@ -55,3 +52,14 @@ FROM nba.dbo.gameDetails
 WHERE COMMENT = 'Played'
 GROUP BY PLAYER_NAME
 ORDER BY EfficiencyRating DESC
+
+
+-- return 2019 players whose rebounding averages are double the league average in the NBA since 2004
+SELECT gd.PLAYER_NAME, ROUND(AVG(gd.REB),1)
+FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
+WHERE YEAR(g.GAME_DATE_EST) = '2019'
+GROUP BY PLAYER_NAME
+HAVING (AVG(REB)) >
+	(SELECT AVG(REB)*2
+	FROM nba.dbo.gameDetails)
+ORDER BY 2 DESC
