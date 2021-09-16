@@ -3,8 +3,7 @@
 	2) Replace null values when necessary
 	3) Replace abbreviated postion values with full names
 	4) Add columns when necessary
-	5) Add a column to designate the winner of each game
-	6) Reformat dates upon retrival*/
+	5) Reformat dates upon retrival*/
 
 -- Remove unecessary columns
 ALTER TABLE nba.dbo.games
