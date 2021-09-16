@@ -1,20 +1,32 @@
--- how many games were played in the 2020 season?
+-- how many games were played in the 2019 season?
 SELECT FORMAT(COUNT(DISTINCT GAME_ID), 'N0') AS NumberofGames
-FROM nba.dbo.gameDetails
+FROM nba.dbo.games
+WHERE YEAR(GAME_DATE_EST) = '2019'
 
 
--- which players attributed to the most points and assists in a game the 2020 season?
+-- which players attributed to the most points and assists in a game in the 2019 season?
 SELECT TOP 1 g.GAME_DATE_EST, gd.PLAYER_NAME AS HighestScoringPlayer, MAX(gd.PTS) AS PointTotal
 FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
-WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
+WHERE YEAR(g.GAME_DATE_EST) = '2019'
 GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
 ORDER BY PointTotal DESC
 
 SELECT TOP 1 g.GAME_DATE_EST, gd.PLAYER_NAME AS HighestAssistingPlayer, MAX(gd.AST) AS AssistTotal
 FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
-WHERE YEAR(g.GAME_DATE_EST) IN (2020,2021)
+WHERE YEAR(g.GAME_DATE_EST) = '2019'
 GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
 ORDER BY AssistTotal DESC
+
+
+-- Full list of players with the respective team and average points, rebounds, and assists in 2019
+WITH playerSummary AS(
+SELECT TEAM_ID, PLAYER_NAME, ROUND(AVG(PTS),1) AS AveragePoints, ROUND(AVG(REB),1) AS AverageRebounds, ROUND(AVG(AST),1) AS AverageAssists
+FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
+WHERE YEAR(g.GAME_DATE_EST) = '2019'
+GROUP BY PLAYER_NAME, TEAM_ID)
+SELECT t.CITYNICKNAME AS TEAM, p.PLAYER_NAME AS Player, p.AveragePoints, p.AverageRebounds, p.AverageAssists
+FROM playerSummary p LEFT JOIN nba.dbo.teams t ON p.TEAM_ID = t.TEAM_ID
+ORDER BY 1
 GO
 
 
@@ -35,6 +47,17 @@ EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Trae Young'
 EXEC dbo.spgameDetails_getStats @PLAYER_NAME = 'Luka Doncic'
 
 
+-- return 2019 players whose rebounding averages are double the league average in the NBA since 2004
+SELECT gd.PLAYER_NAME, ROUND(AVG(gd.REB),1)
+FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
+WHERE YEAR(g.GAME_DATE_EST) = '2019'
+GROUP BY PLAYER_NAME
+HAVING (AVG(REB)) >
+	(SELECT AVG(REB)*2
+	FROM nba.dbo.gameDetails)
+ORDER BY 2 DESC
+
+
 -- Who are the league leaders in efficiency?
 SELECT PLAYER_NAME, 
 ROUND((SUM(FGM)*1.591+
@@ -52,14 +75,3 @@ FROM nba.dbo.gameDetails
 WHERE COMMENT = 'Played'
 GROUP BY PLAYER_NAME
 ORDER BY EfficiencyRating DESC
-
-
--- return 2019 players whose rebounding averages are double the league average in the NBA since 2004
-SELECT gd.PLAYER_NAME, ROUND(AVG(gd.REB),1)
-FROM nba.dbo.gameDetails gd LEFT JOIN nba.dbo.games g ON gd.GAME_ID = g.GAME_ID
-WHERE YEAR(g.GAME_DATE_EST) = '2019'
-GROUP BY PLAYER_NAME
-HAVING (AVG(REB)) >
-	(SELECT AVG(REB)*2
-	FROM nba.dbo.gameDetails)
-ORDER BY 2 DESC
