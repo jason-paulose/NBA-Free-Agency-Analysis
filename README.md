@@ -6,6 +6,6 @@ As an NBA Team Owner, I would like to know the players' average points, rebounds
 
 As an NBA Team Owner, I would like to know the players' efficiency ratings so that I know who will have the most positive impacts on winning.
 
-As an NBA Head Coach, I would like to know last season's players with rebounding averages that are double that of all NBA players since 2004 so that I know who can help my team gain more possessions.
+As an NBA Head Coach, I would like to know last season's players who are well above average rebounders so that I know who can help my team gain more possessions.
 
 Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
