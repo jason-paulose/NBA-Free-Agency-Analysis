@@ -22,7 +22,7 @@ GROUP BY g.GAME_DATE_EST, gd.PLAYER_NAME
 ORDER BY ReboundTotal DESC
 GO
 
--- alternatively, return the average points, rebounds, and assists for any given player in any season
+-- return the average points, rebounds, and assists for any given player in any season
 CREATE PROCEDURE dbo.spgameDetails_getStats
 @PLAYER_NAME nvarchar(50)
 AS
@@ -55,4 +55,3 @@ FROM nba.dbo.gameDetails
 WHERE COMMENT = 'Played'
 GROUP BY PLAYER_NAME
 ORDER BY EfficiencyRating DESC
-
