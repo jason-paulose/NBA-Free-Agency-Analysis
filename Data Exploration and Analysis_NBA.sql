@@ -3,6 +3,16 @@ SELECT FORMAT(COUNT(DISTINCT GAME_ID), 'N0') AS NumberofGames
 FROM nba.dbo.games
 WHERE YEAR(GAME_DATE_EST) = '2019'
 
+-- find the average max and min PTS for each position
+WITH avgMaxandMin AS(
+SELECT PLAYER_NAME,START_POSITION, MIN(PTS) AS MinPTS, MAX(PTS) AS MaxPTS
+FROM nba.dbo.gameDetails
+GROUP BY PLAYER_NAME, START_POSITION)
+SELECT START_POSITION AS Position, ROUND(AVG(MinPTS),1) AS AvgMinPTS, ROUND(AVG(MaxPTS),1) AS AvgMaxPTS
+FROM avgMaxandMin
+WHERE START_POSITION IN ('Guard','Forward','Center')
+GROUP BY START_POSITION
+
 
 -- which players attributed to the most points and assists in a game in the 2019 season?
 SELECT TOP 1 g.GAME_DATE_EST, gd.PLAYER_NAME AS HighestScoringPlayer, MAX(gd.PTS) AS PointTotal
