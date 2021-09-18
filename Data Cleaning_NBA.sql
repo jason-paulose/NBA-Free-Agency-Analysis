@@ -22,26 +22,26 @@ ELSE ARENACAPACITY
 END
 
 UPDATE nba.dbo.teams
-SET ARENACAPACITY = ISNULL(ARENACAPACITY,(SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams))
+SET ARENACAPACITY = COALESCE(ARENACAPACITY,(SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams))
 
 -- replace home/away null values for points, assists, rebounds with the average of those values, respectively
 UPDATE nba.dbo.games
-SET PTS_home = ISNULL(PTS_home, (SELECT AVG(PTS_home)FROM nba.dbo.games))
+SET PTS_home = COALESCE(PTS_home, (SELECT AVG(PTS_home)FROM nba.dbo.games))
 UPDATE nba.dbo.games
-SET AST_home = ISNULL(AST_home, (SELECT AVG(AST_home)FROM nba.dbo.games))
+SET AST_home = COALESCE(AST_home, (SELECT AVG(AST_home)FROM nba.dbo.games))
 UPDATE nba.dbo.games
-SET REB_home = ISNULL(REB_home, (SELECT AVG(REB_home)FROM nba.dbo.games))
+SET REB_home = COALESCE(REB_home, (SELECT AVG(REB_home)FROM nba.dbo.games))
 
 UPDATE nba.dbo.games
-SET PTS_away = ISNULL(PTS_away, (SELECT AVG(PTS_away)FROM nba.dbo.games))
+SET PTS_away = COALESCE(PTS_away, (SELECT AVG(PTS_away)FROM nba.dbo.games))
 UPDATE nba.dbo.games
-SET AST_away = ISNULL(AST_away, (SELECT AVG(AST_away)FROM nba.dbo.games))
+SET AST_away = COALESCE(AST_away, (SELECT AVG(AST_away)FROM nba.dbo.games))
 UPDATE nba.dbo.games
-SET REB_away = ISNULL(REB_away, (SELECT AVG(REB_away)FROM nba.dbo.games))
+SET REB_away = COALESCE(REB_away, (SELECT AVG(REB_away)FROM nba.dbo.games))
 
 -- assume null values in the comments column means the players were available to play
 UPDATE nba.dbo.gameDetails
-SET COMMENT = ISNULL(COMMENT, 'Played')
+SET COMMENT = COALESCE(COMMENT, 'Played')
 
 
 -- Replace abbreviated postion values with full names
@@ -63,6 +63,7 @@ ADD CITYNICKNAME nvarchar(255)
 
 UPDATE nba.dbo.teams
 SET CITYNICKNAME = CONCAT(CITY, SPACE(1), NICKNAME)
+
 
  -- add a column to designate the winner of each game
  ALTER TABLE nba.dbo.games
