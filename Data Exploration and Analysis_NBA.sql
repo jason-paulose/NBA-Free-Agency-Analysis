@@ -4,7 +4,7 @@ FROM nba.dbo.games
 WHERE YEAR(GAME_DATE_EST) = '2019'
 
 
--- maximum number of points scored by each player in each game along with the Highest amount of points scored by one player
+-- maximum number of points scored by each player in each game along with the highest amount of points scored by one player
 SELECT gd.GAME_ID,gd.TEAM_ABBREVIATION, gd.PLAYER_NAME, gd.PTS, MAX(gd.PTS)
 OVER(PARTITION BY gd.GAME_ID) as MaxPTS
 FROM nba.dbo.gameDetails gd
