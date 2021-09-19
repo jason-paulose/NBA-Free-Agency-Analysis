@@ -3,6 +3,16 @@ SELECT FORMAT(COUNT(DISTINCT GAME_ID), 'N0') AS NumberofGames
 FROM nba.dbo.games
 WHERE YEAR(GAME_DATE_EST) = '2019'
 
+
+-- maximum number of points scored by each player in each game along with the Highest amount of points scored by one player
+SELECT gd.GAME_ID,gd.TEAM_ABBREVIATION, gd.PLAYER_NAME, gd.PTS, MAX(gd.PTS)
+OVER(PARTITION BY gd.GAME_ID) as MaxPTS
+FROM nba.dbo.gameDetails gd
+LEFT JOIN nba.dbo.games g
+	ON gd.GAME_ID = g.GAME_ID
+WHERE YEAR(GAME_DATE_EST) = '2019'
+
+
 -- find the average max and min PTS for each position
 WITH avgMaxandMin AS(
 SELECT PLAYER_NAME,START_POSITION, MIN(PTS) AS MinPTS, MAX(PTS) AS MaxPTS
