@@ -15,6 +15,7 @@ I address these user stories with the following SQL concepts:
 - Subqueries
 - Common Table Expressions
 - Stored Procedures
+- Window Functions
 
 --
 
