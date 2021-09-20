@@ -8,22 +8,22 @@
 -- Remove unecessary columns
 ALTER TABLE nba.dbo.games
 DROP COLUMN GAME_STATUS_TEXT,
-			HOME_TEAM_WINS
+	    HOME_TEAM_WINS
 
 ALTER TABLE nba.dbo.teams
 DROP COLUMN LEAGUE_ID,
-			MIN_YEAR,
-			MAX_YEAR,
-			YEARFOUNDED,
-			DLEAGUEAFFILIATION
+	    MIN_YEAR,
+	    MAX_YEAR,
+	    YEARFOUNDED,
+	    DLEAGUEAFFILIATION
 
 
 -- Replace arenas with a capacity of 0/null with the average capacity of all stadiums
 UPDATE nba.dbo.teams
 SET ARENACAPACITY= 
 CASE
-	WHEN ARENACAPACITY = 0 THEN (SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams)
-	ELSE ARENACAPACITY
+     WHEN ARENACAPACITY = 0 THEN (SELECT AVG(CAST(ARENACAPACITY AS INT))FROM nba.dbo.teams)
+     ELSE ARENACAPACITY
 END
 
 UPDATE nba.dbo.teams
@@ -73,9 +73,9 @@ SET COMMENT = COALESCE(COMMENT, 'Played')
 UPDATE nba.dbo.gameDetails
 SET START_POSITION = 
 CASE
-	WHEN START_POSITION = 'G' THEN 'Guard'
-	WHEN START_POSITION = 'F' THEN 'Forward'
-	WHEN START_POSITION = 'C' THEN 'Center'
+     WHEN START_POSITION = 'G' THEN 'Guard'
+     WHEN START_POSITION = 'F' THEN 'Forward'
+     WHEN START_POSITION = 'C' THEN 'Center'
 END
 
 UPDATE nba.dbo.gameDetails
