@@ -4,11 +4,20 @@ Hey! Welcome to my project, NBA Free Agency Analysis. Each NBA season, the excit
 
 1) As an NBA Team Owner, I would like to know any given player's average points, rebounds, and assists so that I know who can provide the most excitement to my fans.
 
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Ben%20Simmons.png)
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/DeMar%20DeRozan.png)
+
 2) As an NBA Team Owner, I would like to know the players' efficiency ratings so that I know who will have the most positive impacts on winning.
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Efficiency%20Ratings.png)
 
 3) As an NBA Head Coach, I would like to know last season's players who are well above-average rebounders so that I know who can help my team gain more possessions.
 
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/rebounders.png)
+
 4) As an NBA Head Coach, I would like to know the average minimum and maxiumum PPG by position so I know which players tend to have the highest and lowest floors/ceilings for potential.
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/average%20max%20and%20min.png)
 
 I address these user stories with the following SQL concepts:
 
