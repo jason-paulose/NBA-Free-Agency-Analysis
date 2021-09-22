@@ -19,13 +19,13 @@ Hey! Welcome to my project, NBA Free Agency Analysis. Each NBA season, the excit
 
 ![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/average%20max%20and%20min.png)
 
-#Process
+# Process
 
-##Source Data
+## Source Data
 
 I found this dataset on Kaggle, downloaded it as a .csv and imported it into SQL Server. Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
 
-##Data Cleaning
+## Data Cleaning
 
 Before analyzing the data, I performed the following operations to work with a cleaner, more relevant dataset. Each line is followed by the main keywords/functions used to accomplish each task.
 
