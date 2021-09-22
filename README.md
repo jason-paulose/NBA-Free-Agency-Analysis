@@ -45,8 +45,8 @@ In order to address the user stories above, I used the following SQL concepts to
 - Stored Procedures: provides a clean way repeat queries with different inputs while making my code reusable
 - Window Functions: valuable when looking looking to compare aggregate values to single records in the same view; for example, glossing over the Roster of the Houston Rockets and seeing James Harden's 37 point performance (the max value for that particular game) greatly exceed the point total of any of Rocket is a testament to his ability to single-handedly win a game.
 
-# Lesson learned
+# Reflection
 
-I previously spent most of my time in a online course environment, looking a slides and completing basic problems. Like new developer, I ran into a brick wall when trying to come up with my own project. I combed through different datasets to find something appealing. I found it difficult to come up with relevant user stories. I was looking at data that was messier than what I had ever seen. Not to mention the number of google searches I did every time I executed a query.
+I previously spent most of my time in a online course environment, looking at slides and completing basic problems. Like new developer, I ran into a brick wall when trying to come up with my own project. I combed through different datasets to find something appealing. I found it difficult to come up with relevant user stories. I was looking at data that was messier than what I had ever seen. Not to mention the number of google searches I did every time I executed a query.
 
 However, going through all these challenges was truly a gift. I fell in love with the process of hitting and obstacle and working until I  was able to overcome. Allowing my own creativity to lead me through this project has taught me so much, and I can't wait to continue with project-based learning.
