@@ -19,6 +19,8 @@ The purpose of this study is to uncover how players perform in these statistical
 
 I found this dataset on Kaggle, downloaded it as a .csv and imported it into SQL Server. Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
 
+One consideration is that one table only had team data from the 2019 - 2020 NBA season. As a result, the analysis of the statistics above are based on 2019 - 2020 data.
+
 ### Data Cleaning
 
 Before analyzing the data, I performed the following operations to work with a cleaner, more relevant dataset. Each line is followed by the main keywords/functions used to accomplish each task.
@@ -30,7 +32,7 @@ Before analyzing the data, I performed the following operations to work with a c
 
 ### Data Exploration
 
-In order to address the user stories above, I used the following SQL concepts to produce my results.
+Before uncovering player performance in the four statistical categories, I used the following SQL concepts to produce aggregate measures of statistics like points, rebounds, assists, and minutes played.
 
 - Aggregate Functions: primarily used to find an average, as that is a fundamental calculation for statistics in any sport
 - Joins: allowed me to get more descriptive information in my results, such as including the name of a team rather than it's ID
@@ -38,6 +40,8 @@ In order to address the user stories above, I used the following SQL concepts to
 - Common Table Expressions: critical in allowing me to aggregate values multiple times, such as finding the average of the max/min points per position
 - Stored Procedures: provides a clean way repeat queries with different inputs while making my code reusable
 - Window Functions: valuable when looking looking to compare aggregate values to single records in the same view; for example, glossing over the Roster of the Houston Rockets and seeing James Harden's 37 point performance (the max value for that particular game) greatly exceed the point total of any of Rocket is a testament to his ability to single-handedly win a game.
+
+### Data Analysis
 
 # Reflection
 
