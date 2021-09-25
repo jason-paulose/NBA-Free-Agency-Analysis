@@ -33,7 +33,7 @@ Before analyzing the data, I performed the following operations to work with a c
 
 ### Data Exploration
 
-Before uncovering player performance in the four statistical categories, I carried out the data exploration steps below followed by the main keywords/functions.
+Before uncovering player performance in the 5 statistical categories, I carried out the data exploration steps below followed by the main keywords/functions.
 
 - **Number of games played in 2019:** FORMAT, COUNT, DISTINCT to aggregate the data
 - **Average maximum and average minimum points scored by each position:** used Common Table Expression to aggregate the same data multiple times
