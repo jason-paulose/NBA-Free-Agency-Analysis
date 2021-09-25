@@ -74,6 +74,6 @@ Additionally, I previously spent most of my time in a online course environment,
 However, going through all these challenges was truly a gift. I fell in love with the process of facing an obstacle and working until I  was able to overcome it. Allowing my creativity to lead me through this project has compelled me to take a step back and evaluate this project from it's value proposition to the code development all the way to improvements for the future - looking forward to the next project!
 
 # Sources
--- https://www.forbes.com/sites/chrissmith/2019/12/23/team-of-the-decade-golden-state-warriors-value-up-1000-since-2009/?sh=33245deb480a
--- https://www.visualcapitalist.com/two-decades-of-nba-profit/
--- https://www.nba.com/stats/help/faq/
+- https://www.forbes.com/sites/chrissmith/2019/12/23/team-of-the-decade-golden-state-warriors-value-up-1000-since-2009/?sh=33245deb480a
+- https://www.visualcapitalist.com/two-decades-of-nba-profit/
+- https://www.nba.com/stats/help/faq/
