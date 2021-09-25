@@ -26,7 +26,7 @@ One consideration is that one table only had team data from the 2019 - 2020 NBA 
 
 Before analyzing the data, I performed the following operations to work with a cleaner, more relevant dataset. The first part of the script displays cleaning steps that directly impacted my analysis, and the second part contains additional cleaning steps that didn't aid my analysis, but it allowed me to continue practicing common data cleaning steps. The high level tasks I completed are below, followed by the main keywords/functions used to accomplish this part of the project.
 
-**- Remove unnecessary columns:** used ALTER TABLE and DROP COLUMN
+- **Remove unnecessary columns:** used ALTER TABLE and DROP COLUMN
 **- Remove null values:** used UPDATE, CASE, and COALESCE
 **- Clean strings:** used UPDATE and CASE
 **- Add conditional columns:** used ALTER TABLE, ADD, CONCAT, CHARINDEX
