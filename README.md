@@ -6,8 +6,9 @@ Each NBA season, the excitement does not just end after the NBA championship, bu
 
 With all this in mind, NBA organizations need to methodically grow their rosters in the hopes of being a championship calendar team. As measuring performance is critical to improving performance, many sources have found that the following 4 statistics are proven to have the biggest impact on winning:
 
+- Overall Efficiency Rating
 - Effective Field Goal Percentage
-- Assist to Turnover Ratio
+- Turnover Ratio
 - Offensive Rebounding
 - Free Throw Attempt Rate
 
@@ -42,6 +43,26 @@ Before uncovering player performance in the four statistical categories, I used 
 - Window Functions: valuable when looking looking to compare aggregate values to single records in the same view; for example, glossing over the Roster of the Houston Rockets and seeing James Harden's 37 point performance (the max value for that particular game) greatly exceed the point total of any of Rocket is a testament to his ability to single-handedly win a game.
 
 ### Data Analysis
+
+- Overall Efficiency Rating
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Efficiency%20Ratings.png)
+
+- Effective Field Goal Percentage
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/effective%20FG%20percentage.png)
+
+- Turnover Ratio
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/turnover%20ratio.png)
+
+- Offensive Rebounding
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/offenseive%20rebounding.png)
+
+- Free Throw Attempt Rate
+
+![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/free%20throw%20attempt%20rate.png)
 
 # Reflection
 
