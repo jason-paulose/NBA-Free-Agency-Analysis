@@ -4,7 +4,7 @@ Hey! Welcome to my project, NBA Free Agency Analysis.
 
 Each NBA season, the excitement does not just end after the NBA championship, but the free agency period can seem like a exhilirating playoff run itself. As an NBA fan, nothing is more glorious then seeing your favorite team hoist the Larry O'Brien trophy - but pride aside, there is extra incentive for NBA owners, coaches, and players to perform at an elite level. According to Forbes, the average operating income of an NBA team has gone from $6M in 2011 to a whopping $62M in 2020. Most notably, you have seen teams like the Golden State Warriors value grow 1000% since 2009. With the NBA being a multi-billion dollar industry, each team continuing to improve and entertain fans globally will allow even greater financial prosperity for years to come.
 
-With all this in mind, NBA organizations need to methodically grow their rosters in the hopes of being a championship caliber team. As measuring performance is critical to improving performance, many sources have found that the following 4 statistics are proven to have the biggest impact on winning:
+With all this in mind, NBA organizations need to methodically grow their rosters in the hopes of being a championship caliber team. As measuring performance is critical to improving performance, many sources have found that the following 5 statistics are proven to have the biggest impact on winning:
 
 - Overall Efficiency Rating
 - Effective Field Goal Percentage
