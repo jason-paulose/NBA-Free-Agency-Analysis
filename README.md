@@ -18,7 +18,7 @@ The purpose of this study is to uncover how players perform in these statistical
 
 ### Source Data
 
-I found this dataset on Kaggle, downloaded it as a .csv and imported it into SQL Server. Credit for the dataset goes to Nathan Lauga on Kaggle: https://www.kaggle.com/nathanlauga/nba-games
+I found this dataset on Kaggle, downloaded it as a .csv and imported it into SQL Server. Credit for the dataset goes to Nathan Lauga: https://www.kaggle.com/nathanlauga/nba-games
 
 One consideration is that one table only had team data from the 2019 - 2020 NBA season. As a result, the analysis of the statistics above are based on 2019 - 2020 data.
 
