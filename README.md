@@ -43,6 +43,8 @@ Before uncovering player performance in the four statistical categories, I carri
 
 ### Data Analysis
 
+Since I was only concerned with 2019-2020 statistics, I created a view from which I ran further queries to uncover insights on the five statistical categories considered for this project. The SQL concepts used in the analysis were very similar to the data exploration section.
+
 - Overall Efficiency Rating
 
 ![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Efficiency%20Ratings.png)
@@ -65,7 +67,9 @@ Before uncovering player performance in the four statistical categories, I carri
 
 # Reflection
 
-I previously spent most of my time in a online course environment, looking at slides and completing basic problems. Like any new developer, I ran into a brick wall when trying to come up with my own project. I combed through different datasets to find something appealing. I had to carve out extra time to understand the most relevant statistics. I was looking at data that was messier than what I had ever seen. I can only guess the number of google searches I had to do after all the errors my queries produced.
+One major lesson I learned is that data cleaning is an iterative process. I attempted to clean the data as the first step of the development. However, after the data exploration phase, I realized additional cleaning steps I had to perform to support my analysis.
+
+Additionally, I previously spent most of my time in a online course environment, looking at slides and completing basic problems. Like any new developer, I ran into a brick wall when trying to come up with my own project. I combed through different datasets to find something appealing. I had to carve out extra time to understand the most relevant statistics. I was looking at data that was messier than what I had ever seen. I can only guess the number of google searches I had to do after all the errors my queries produced.
 
 However, going through all these challenges was truly a gift. I fell in love with the process of facing an obstacle and working until I  was able to overcome it. Allowing my creativity to lead me through this project has compelled me to take a step back and evaluate this project from it's value proposition to the code development all the way to improvements for the future - looking forward to the next project!
 
