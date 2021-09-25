@@ -1,3 +1,8 @@
+
+---------------------------------------------------------------------------------------------
+-- Data Exploration
+---------------------------------------------------------------------------------------------
+
 -- how many games were played in the 2020 season?
 SELECT FORMAT(COUNT(DISTINCT GAME_ID), 'N0') AS [Number of Games In 2019]
 FROM nba.dbo.games
@@ -81,25 +86,22 @@ ON gd.GAME_ID = g.GAME_ID
 WHERE g.SEASON = 2019
 
 
--- return players whose career minutes/game are double the league average in the NBA since 2004
-WITH minutesCTE AS
-(
-SELECT GAME_ID, PLAYER_NAME AS Player, CAST(LEFT(MIN,CHARINDEX(':',[MIN])-1) AS INT) as [NUM_MIN]
-from nba.dbo.gameDetails
-where [MIN] IS NOT NULL
-AND CHARINDEX(':',[MIN]) <> 0
-)
-SELECT m.Player, AVG(m.NUM_MIN) AS MPG
-FROM minutesCTE m
+-- return players whose career minutes/game are 1.5x the league average in the NBA since 2004
+SELECT gd.PLAYER_NAME AS Player, AVG(gd.MIN_INT) AS MPG
+FROM nba.dbo.gameDetails gd
 LEFT JOIN nba.dbo.games g
-ON m.GAME_ID = g.GAME_ID
-GROUP BY m.Player
-HAVING AVG(m.NUM_MIN) > 
-	(SELECT 1.5*AVG(NUM_MIN)
-	FROM minutesCTE)
+ON gd.GAME_ID = g.GAME_ID
+GROUP BY gd.PLAYER_NAME
+HAVING AVG(gd.MIN_INT) > 
+	(SELECT 1.5*AVG(MIN_INT)
+	FROM nba.dbo.gameDetails)
 ORDER BY MPG DESC
 GO
 
+
+---------------------------------------------------------------------------------------------
+-- Data Analysis
+---------------------------------------------------------------------------------------------
 
 -- Create a view for the remainder of the analysis of 2019 NBA stats
 CREATE VIEW view_NBAStats2019 AS
@@ -169,17 +171,14 @@ HAVING AVG(FGA) >= 5
 ORDER BY [Effective FG Percentage] DESC, [FGA Per Game] DESC
 
 
--- who are the league leaders in assist to turnover ratio?
+-- who are the league leaders in Turnover Ratio?
 SELECT TEAM_ABBREVIATION AS Team,
        PLAYER_NAME AS Player,
-	   ROUND(AVG(AST),1) AS APG,
-	   ROUND(AVG([TO]),1) AS TOPG,
-	   ROUND((SUM(AST)/SUM([TO])),1) AS [AST/TO]
+	   ROUND(AVG([TO]),1) AS [TO],
+	   ROUND(((SUM([TO])*100)/(SUM([TO])+SUM(AST)+SUM(FGA)+0.44*SUM(FTA))),1) AS [TO%]
 FROM view_NBAStats2019
-WHERE [TO] > 0
 GROUP BY TEAM_ABBREVIATION, PLAYER_NAME
-HAVING SUM(AST) >= 200
-ORDER BY [AST/TO] DESC, APG DESC
+ORDER BY [TO%] ASC
 
 
 -- who are the league leaders in free throw attempt rate?
