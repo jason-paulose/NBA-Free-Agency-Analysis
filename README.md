@@ -1,23 +1,17 @@
 # NBA-Free-Agency-Analysis
 
-Hey! Welcome to my project, NBA Free Agency Analysis. Each NBA season, the excitement does not just end after the NBA championship, but the free agency period can seem like a exhilirating playoff run itself. As teams revaluate and retool their rosters, different statistics can drive action for each team depending on their needs. The goal of this project is to analyze NBA game data to uncover insights from the following perspectives:
+Hey! Welcome to my project, NBA Free Agency Analysis. 
 
-1) As an NBA Team Owner, I would like to know any given player's average points, rebounds, and assists so that I know who can provide the most excitement to my fans.
+Each NBA season, the excitement does not just end after the NBA championship, but the free agency period can seem like a exhilirating playoff run itself. As an NBA fan, nothing is more glorious then seeing your favorite team hoist the Larry O'Brien trophy - but pride aside, there is extra incentive for NBA owners, coaches, and players to perform at an elite level. According to Forbes, the average operating income of an NBA team has gone from $6M in 2011 to a whopping $62M in 2020. Most notably, you have seen teams like the Golden State Warriors value grow 1000% since 2009. With the NBA being a multi-billion dollar industry, each team continuing to improve and entertain fans globally will allow even greater financial prosperity for years to come.
 
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Ben%20Simmons.png)
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/DeMar%20DeRozan.png)
+With all this in mind, NBA organizations need to methodically grow their rosters in the hopes of being a championship calendar team. As measuring performance is critical to improving performance, many sources have found that the following 4 statistics are proven to have the biggest impact on winning:
 
-2) As an NBA Team Owner, I would like to know the players' efficiency ratings so that I know who will have the most positive impacts on winning.
+- Effective Field Goal Percentage
+- Assist to Turnover Ratio
+- Offensive Rebounding
+- Free Throw Attempt Rate
 
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/Efficiency%20Ratings.png)
-
-3) As an NBA Head Coach, I would like to know last season's players who are well above-average rebounders so that I know who can help my team gain more possessions.
-
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/rebounders.png)
-
-4) As an NBA Head Coach, I would like to know the average minimum and maxiumum PPG by position so I know which players tend to have the highest and lowest floors/ceilings for potential.
-
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/average%20max%20and%20min.png)
+The purpose of this study is to uncover how players perform in these statistical categories and ultimately who should garner attention for a free agency signing or trade request.
 
 # Process
 
@@ -34,7 +28,7 @@ Before analyzing the data, I performed the following operations to work with a c
 3) Clean strings: used UPDATE and CASE
 4) Add conditional columns: used ALTER TABLE, ADD, CONCAT
 
-### Data Analysis
+### Data Exploration
 
 In order to address the user stories above, I used the following SQL concepts to produce my results.
 
@@ -50,3 +44,7 @@ In order to address the user stories above, I used the following SQL concepts to
 I previously spent most of my time in a online course environment, looking at slides and completing basic problems. Like any new developer, I ran into a brick wall when trying to come up with my own project. I combed through different datasets to find something appealing. I found it difficult to come up with relevant user stories. I was looking at data that was messier than what I had ever seen. Not to mention the number of google searches I did every time one of my queries returned an error.
 
 However, going through all these challenges was truly a gift. I fell in love with the process of hitting and obstacle and working until I  was able to overcome. Allowing my own creativity to lead me through this project has taught me so much, and I can't wait to continue with project-based learning.
+
+# Sources
+https://www.forbes.com/sites/chrissmith/2019/12/23/team-of-the-decade-golden-state-warriors-value-up-1000-since-2009/?sh=33245deb480a
+https://www.visualcapitalist.com/two-decades-of-nba-profit/
