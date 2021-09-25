@@ -24,23 +24,22 @@ One consideration is that one table only had team data from the 2019 - 2020 NBA 
 
 ### Data Cleaning
 
-Before analyzing the data, I performed the following operations to work with a cleaner, more relevant dataset. Each line is followed by the main keywords/functions used to accomplish each task.
+Before analyzing the data, I performed the following operations to work with a cleaner, more relevant dataset. The first part of the script displays cleaning steps that directly impacted my analysis, and the second part contains additional cleaning steps that didn't aid my analysis, but it allowed me to continue practicing common data cleaning steps. The high level tasks I completed are below, followed by the main keywords/functions used to accomplish this part of the project.
 
-1) Remove unnecessary columns: used ALTER TABLE and DROP COLUMN
-2) Remove null values: used UPDATE, CASE, and COALESCE
-3) Clean strings: used UPDATE and CASE
-4) Add conditional columns: used ALTER TABLE, ADD, CONCAT
+**- Remove unnecessary columns:** used ALTER TABLE and DROP COLUMN
+**- Remove null values:** used UPDATE, CASE, and COALESCE
+**- Clean strings:** used UPDATE and CASE
+**- Add conditional columns:** used ALTER TABLE, ADD, CONCAT, CHARINDEX
 
 ### Data Exploration
 
-Before uncovering player performance in the four statistical categories, I used the following SQL concepts to produce aggregate measures of statistics like points, rebounds, assists, and minutes played.
+Before uncovering player performance in the four statistical categories, I carried out the data exploration steps below followed by the main keywords/functions.
 
-- Aggregate Functions: primarily used to find an average, as that is a fundamental calculation for statistics in any sport
-- Joins: allowed me to get more descriptive information in my results, such as including the name of a team rather than it's ID
-- Subqueries: helpful in filtering records in relation to value that is unknown to the analyst, such as the only looking for players with a rebounding average that is well above the league average
-- Common Table Expressions: critical in allowing me to aggregate values multiple times, such as finding the average of the max/min points per position
-- Stored Procedures: provides a clean way repeat queries with different inputs while making my code reusable
-- Window Functions: valuable when looking looking to compare aggregate values to single records in the same view; for example, glossing over the Roster of the Houston Rockets and seeing James Harden's 37 point performance (the max value for that particular game) greatly exceed the point total of any of Rocket is a testament to his ability to single-handedly win a game.
+**- Number of games played in 2019:** FORMAT, COUNT, DISTINCT to aggregate the data
+**- Average maximum and average minimum points scored by each position:** used Common Table Expression to aggregate the same data multiple times
+**- Full list of players with average points, rebounds, and assists:** used a Stored Procedure to find these statistics for any player in any year since 2004
+**- Individual point totals compared to the highest point total for each game:** used Windowing to display both individual and aggregate values in one query
+**- Players who played well above average minutes/game:** used a Subquery to use uknown critera of average minutes/game in the WHERE clause
 
 ### Data Analysis
 
