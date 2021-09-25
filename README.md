@@ -58,11 +58,11 @@ Before uncovering player performance in the four statistical categories, I used 
 
 - Offensive Rebounding
 
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/offenseive%20rebounding.png)
+
 
 - Free Throw Attempt Rate
 
-![](https://github.com/jason-paulose/NBA-Free-Agency-Analysis/blob/main/free%20throw%20attempt%20rate.png)
+
 
 # Reflection
 
