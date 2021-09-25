@@ -43,7 +43,7 @@ Before uncovering player performance in the 5 statistical categories, I carried 
 
 ### Data Analysis
 
-Since I was only concerned with 2019-2020 statistics, I created a view from which I ran further queries to uncover insights on the five statistical categories considered for this project. The SQL concepts used in the analysis were very similar to the data exploration section.
+Since I was only concerned with 2019-2020 statistics, I created a view from which I ran further queries to uncover insights on the 5 statistical categories considered for this project. The SQL concepts used in the analysis were very similar to the data exploration section.
 
 - Overall Efficiency Rating
 
